@@ -68,8 +68,7 @@ g
 # %%
 rows = []
 total = len(df['HC Cost Center'].unique())
-total
-# %%
+
 for a, b in itertools.combinations(g.index, 2):
     rows.append({
         'L6-1' : a,
@@ -82,4 +81,13 @@ for a, b in itertools.combinations(g.index, 2):
 
 finalDF = pd.DataFrame(rows)
 finalDF
+# %%
+# Output
+fileName = 'data\output\CC Analysis.xlsx'
+finalDF.to_excel(fileName)
+
+print(
+    f'\nThe output has been written to: {fileName}\n'
+    f'\n{finalDF}\n'
+    )
 # %%
