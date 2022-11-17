@@ -110,5 +110,9 @@ print(
 Next get list of common CC and see which region and country
 
 **************************
+
+1) list of values of shared CC
+2) how many times it's shared between two L6
+3) list of names that share that CC
 '''
 
