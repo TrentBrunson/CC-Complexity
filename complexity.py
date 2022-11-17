@@ -37,6 +37,7 @@ df['HC Cost Center'].unique()
 NumUniqueCC = df['HC Cost Center'].nunique()
 NumUniqueCC
 # %%
+# number of
 df.groupby(['HC Cost Center']).size()
 # %%
 df.groupby(['L6']).size()
@@ -45,8 +46,20 @@ df.groupby(['L6']).size()
 df.groupby(['L6']).count()
 # %%
 test = df.groupby(['L6', 'HC Cost Center'])
+test
 # %%
-test.first()
+# test.first()
+# reduce this to just the CC values
+
+'''
+*************************************
+work on this still
+*************************************
+'''
+
+# CCdf = 
+finalTest = pd.DataFrame(test)
+finalTest.to_excel('data\output\groupedby_CC.xlsx')
 # %%
 newDF = df[[
     'L6',
@@ -91,3 +104,11 @@ print(
     f'\n{finalDF}\n'
     )
 # %%
+'''
+************************
+
+Next get list of common CC and see which region and country
+
+**************************
+'''
+
