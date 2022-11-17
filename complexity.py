@@ -53,3 +53,12 @@ newDF = df[[
 ]]
 newDF
 # %%
+newDF.groupby(['L6']).size()
+# %%
+g = newDF.groupby('L6')['HC Cost Center'].apply(lambda x: list(np.unique(x)))
+# %%
+aggDF = newDF.groupby('L6').agg(set)
+aggDF
+# %%
+print(aggDF)
+# %%
