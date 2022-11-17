@@ -1,6 +1,7 @@
 #%%
 import pandas as pd
 import numpy as np
+import itertools
 # %%
 df = pd.read_excel('data\input\HC CC list - Offer Ops - Nov15.xlsx')
 # %%
@@ -55,10 +56,30 @@ newDF
 # %%
 newDF.groupby(['L6']).size()
 # %%
-g = newDF.groupby('L6')['HC Cost Center'].apply(lambda x: list(np.unique(x)))
+# gNP = newDF.groupby('L6')['HC Cost Center'].apply(lambda x: list(np.unique(x)))
 # %%
 aggDF = newDF.groupby('L6').agg(set)
 aggDF
 # %%
-print(aggDF)
+# print(aggDF)
+# %%
+g = df.groupby('L6')['HC Cost Center'].apply(set)
+g
+# %%
+rows = []
+total = len(df['HC Cost Center'].unique())
+total
+# %%
+for a, b in itertools.combinations(g.index, 2):
+    rows.append({
+        'L6-1' : a,
+        'L6-2' : b,
+        'Number of CC for L6-1' : len(g[a]),
+        'Number of CC for L6-2' : len(g[b]),
+        'All CC' : total,
+        'Common CC' : len(g[a] & g[b])
+    })
+
+finalDF = pd.DataFrame(rows)
+finalDF
 # %%
